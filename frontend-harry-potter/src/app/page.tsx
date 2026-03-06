@@ -16,7 +16,7 @@ export default function Home() {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`http://localhost:3001/api/hp/${activeTab}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/hp/${activeTab}`);
         if (!response.ok) throw new Error("Error en la red o servidor caído");
         const result = await response.json();
         setData(result.data);
